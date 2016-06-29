@@ -7,7 +7,7 @@
     "test": "npm run dist && mocha test/dist.js",
     "test-babel": "mocha test/*.js --require babel-core/register",
     "test-build": "npm run build && mocha test/dist.js --require babel-core/register",
-    "start": "concurrently --kill-others \"npm run watch\" \"npm run server\"",
+    "start": "npm run build && concurrently --kill-others \"npm run watch\" \"npm run server\"",
     "server": "browser-sync start --no-ghost-mode --server --directory --files 'examples/**/**, build/*.js' --startPath examples/index.html",
     "watch": "watchify --poll=300 --fast -e src/index.js -d -t babelify -o build/bundle.js -v",
     "babel-watch": "babel --watch src/index.js -o build/bundle.js",
