@@ -1,7 +1,5 @@
-image: dockerfile/nodejs
-name: babel-base-setup
-script:
-  - npm install
-  - npm test
-env:
-  - NODE_ENV=production
+build:
+  image: dockerfile/nodejs
+  commands:
+    - npm install
+    - npm test
